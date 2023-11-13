@@ -1,0 +1,9 @@
+*.AppImage
+*.pkg.tar.zst
+**/src/
+**/pkg/
+*.ico
+*.png
+*.svg
+*.jpg
+*.jpeg

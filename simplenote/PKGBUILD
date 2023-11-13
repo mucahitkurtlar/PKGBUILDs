@@ -1,0 +1,33 @@
+# Maintainer: Mücahit Kurtlar
+# Contributor: Mücahit Kurtlar
+
+pkgname=simplenote-bin
+_pkgname=simplenote
+pkgver=2.21.0
+pkgrel=1
+pkgdesc="The simplest way to keep notes."
+arch=('x86_64')
+url="https://simplenote.com/"
+license=('GPL2')
+depends=(fuse2)
+provides=(simplenote)
+conflicts=(simplenote-electron-bin)
+options=('!strip')
+source=("simplenote.desktop"
+        "https://raw.githubusercontent.com/Automattic/simplenote-electron/trunk/resources/images/simplenote.ico")
+source_x86_64=("https://github.com/Automattic/simplenote-electron/releases/download/v${pkgver}/Simplenote-linux-${pkgver}-${CARCH}.AppImage")
+sha256sums=('41c5cf2e0e179627aed5dea4fd5a64a70a9a8ee1205a6bf40df03bfd4df6aa97'
+            '81f1acac7a50fa9e255cc4b7c67d5e99499eed12ecdf5f8e96961602249aebc5')
+sha256sums_x86_64=('d24e6149a262f11e3d2c201acce22f2b21b7a47efefb4370a8b5d122d90ce907')
+
+package() {
+    install -d "${pkgdir}/usr/bin"
+    install -d "${pkgdir}/usr/share/applications"
+
+    install -D -t "${pkgdir}/opt/${_pkgname}" -m 755 "${srcdir}/Simplenote-linux-${pkgver}-${CARCH}.AppImage"
+    install -D -t "${pkgdir}/opt/${_pkgname}/resources" -m 644 "${srcdir}/simplenote.ico"
+    install -D -t "${pkgdir}/opt/${_pkgname}/resources" -m 644 "${srcdir}/simplenote.desktop"
+
+    ln -s "/opt/${_pkgname}/Simplenote-linux-${pkgver}-${CARCH}.AppImage" "${pkgdir}/usr/bin/simplenote"
+    ln -s "/opt/${_pkgname}/resources/simplenote.desktop" "${pkgdir}/usr/share/applications/simplenote.desktop"
+}

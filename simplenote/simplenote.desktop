@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Simplenote
+Comment=The simplest way to keep notes.
+GenericName=Note Taking Application
+Exec=/usr/bin/simplenote --no-sandbox %U
+Icon=/opt/simplenote/resources/simplenote.ico
+Type=Application
+StartupNotify=false
+Categories=Utility;
+MimeType=text/plain;
+Keywords=notes;todo;tasks;todo;list;checklist;note;
