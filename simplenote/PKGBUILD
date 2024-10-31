@@ -3,7 +3,7 @@
 
 pkgname=simplenote-bin
 _pkgname=simplenote
-pkgver=2.21.0
+pkgver=2.22.2
 pkgrel=1
 pkgdesc="The simplest way to keep notes."
 arch=('x86_64')
@@ -18,7 +18,7 @@ source=("simplenote.desktop"
 source_x86_64=("https://github.com/Automattic/simplenote-electron/releases/download/v${pkgver}/Simplenote-linux-${pkgver}-${CARCH}.AppImage")
 sha256sums=('41c5cf2e0e179627aed5dea4fd5a64a70a9a8ee1205a6bf40df03bfd4df6aa97'
             '81f1acac7a50fa9e255cc4b7c67d5e99499eed12ecdf5f8e96961602249aebc5')
-sha256sums_x86_64=('d24e6149a262f11e3d2c201acce22f2b21b7a47efefb4370a8b5d122d90ce907')
+sha256sums_x86_64=('fca24bd09c3077577f0d0deeb6cbb5a2312c37842e31d438f86b839d33d965cb')
 
 package() {
     install -d "${pkgdir}/usr/bin"
